@@ -2,19 +2,25 @@ import React from "react";
 
 function Product(props) {
   console.log(props);
-  const { product } = props;
+  const { product, incCart } = props;
 
   return (
-    <div>
+    <div className="d-flex flex-column bg-light m-3 p-4 rounded">
       <img
-        className="img-fluid size"
+        className="img-fluid size d-flex align-items-center"
         src={product.image}
         alt="{product.name}"
       />
-      <h3>{product.name}</h3>
-      <div> ${product.price}</div>
-      <div>
-        <button className="btn btn-success">Add cart</button>
+      <div className="d-flex flex-column justify-content-between align-items-center">
+        <div>
+          <h3>{product.name}</h3>
+        </div>
+        <div> ${product.price}</div>
+        <div className="">
+          <button className="btn btn-success " onClick={incCart}>
+            Add cart
+          </button>
+        </div>
       </div>
     </div>
   );

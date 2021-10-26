@@ -3,3 +3,19 @@
   flex: 2;
   margin-right: 10px;
 }
+img.size {
+}
+
+button .add {
+  background-color: #acf;
+}
+button.remove {
+  background-color: #12cd34;
+}
+button.badge {
+  color: #fff;
+  background-color: #cda423;
+}
+.text-right {
+  text-align: right;
+}
