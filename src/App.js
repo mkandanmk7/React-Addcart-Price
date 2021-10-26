@@ -3,12 +3,15 @@ import Basket from "./Components/Basket";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
 
+import data from "./data";
+
 function App() {
+  const { products } = data;
   return (
     <div className="container">
       <Header />
-      <div className="d-flex justify-content-between p-2 my-2">
-        <Main />
+      <div className="d-flex my-3 ">
+        <Main products={products} />
         <Basket />
       </div>
     </div>
