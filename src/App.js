@@ -31,15 +31,17 @@ function App() {
     if (exist.qty === 1) {
       setCart(cart.filter((x) => x.id !== product.id)); //it will remove mathcing id cart value;
     } else {
-      cart.map(
-        (x) => (x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x) //else keep the products
+      setCart(
+        cart.map(
+          (x) => (x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x) //else keep the products
+        )
       );
     }
   };
 
   return (
     <div className="container">
-      <Header />
+      <Header countCart={cart.length} />
       <div className="d-flex my-3 ">
         <Main incCart={incCart} products={products} />
         <Basket incCart={incCart} decCart={decCart} cartItems={cart} />

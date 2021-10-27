@@ -2,7 +2,8 @@
 import React from "react";
 import "./Css/Header.css";
 
-function Header() {
+function Header(props) {
+  const { countCart } = props;
   return (
     <>
       <header className="my-2 rounded d-flex justify-content-around p-3 align-items-center bg-secondary">
@@ -12,7 +13,14 @@ function Header() {
           </a>
         </div>
         <div className="fs-3 fw-bold text-danger">
-          <a href="#/cart">Cart </a>
+          <a href="#/cart">
+            Cart
+            {countCart ? (
+              <button className="btn btn-light mx-2 badge">{countCart}</button>
+            ) : (
+              ""
+            )}
+          </a>
           <a href="#/signin">SignIn</a>
         </div>
       </header>
