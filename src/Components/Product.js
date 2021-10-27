@@ -17,8 +17,8 @@ function Product(props) {
         </div>
         <div> ${product.price}</div>
         <div className="">
-          <button className="btn btn-success " onClick={incCart}>
-            Add cart
+          <button className="btn btn-success " onClick={() => incCart(product)}>
+            Add to cart
           </button>
         </div>
       </div>

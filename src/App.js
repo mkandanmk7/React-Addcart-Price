@@ -18,11 +18,22 @@ function App() {
       setCart(
         cart.map((x) => {
           // eslint-disable-next-line no-unused-expressions
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x;
+          return x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x;
         })
       );
     } else {
-      setCart([...cart, { ...(product.qty + 1) }]);
+      setCart([...cart, { ...product, qty: 1 }]);
+    }
+  };
+
+  const decCart = (product) => {
+    const exist = cart.find((x) => x.id === product.id);
+    if (exist.qty === 1) {
+      setCart(cart.filter((x) => x.id !== product.id)); //it will remove mathcing id cart value;
+    } else {
+      cart.map(
+        (x) => (x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x) //else keep the products
+      );
     }
   };
 
@@ -31,7 +42,7 @@ function App() {
       <Header />
       <div className="d-flex my-3 ">
         <Main incCart={incCart} products={products} />
-        <Basket incCart={incCart} cartItems={cart} />
+        <Basket incCart={incCart} decCart={decCart} cartItems={cart} />
       </div>
     </div>
   );
